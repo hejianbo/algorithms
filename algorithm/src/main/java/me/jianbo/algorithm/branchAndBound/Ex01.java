@@ -31,13 +31,17 @@ public class Ex01 {
         // 已知的最优解
         int bestWeight = 0;
         while (!queue.isEmpty()) {
-            // 如果当前扩展结点的重量 +
-            if (cw + containersWeight[i - 1] < loadWeight) {
+            // 展开该层结点
+
+            // 先展开左边, 左边表示选中, 然后放入到队列中
+            if (cw + containersWeight[i - 1] < loadWeight) { // 该条件表示分支限界的 [约束函数]
                 bestWeight = saveQueue(queue, cw + containersWeight[i- 1], bestWeight, i, containerQty);
             }
+            // 再展开右边, 右边表示未选中, 即不装, 然后放入到队列中
             bestWeight = saveQueue(queue, cw, bestWeight, i, containerQty);
-            int head = queue.poll();
-            if (head == -1) {
+            cw = queue.poll();
+            // 如果head = -1, 表示当前层级已经展开完
+            if (cw == -1) {
                 if (queue.isEmpty()) {
                     return bestWeight;
                 }
