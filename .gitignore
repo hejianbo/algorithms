@@ -28,3 +28,9 @@ target
 .idea
 *.iml
 test
+
+# eclipse
+.classpath
+target
+.project
+.settings
