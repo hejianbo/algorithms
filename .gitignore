@@ -34,3 +34,6 @@ test
 target
 .project
 .settings
+
+# vscode
+.vscode

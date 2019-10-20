@@ -1,11 +1,6 @@
 package me.jianbo.ds.chapter02;
 
-public interface MyList<E> {
-	/**
-	 * 创建一个空的线性表
-	 * @return
-	 */
-	MyList<E> makeEmpty();
+public interface MyList<E> extends Iterable<E>{
 	
 	/**
 	 * 返回第k个元数
@@ -26,13 +21,19 @@ public interface MyList<E> {
 	 * @param x
 	 * @param index
 	 */
-	void insert(E x, int index);
+	void add(E x, int index);
+
+	/**
+	 * 在末尾插入元数x
+	 * @param x
+	 */
+	void add(E x);
 	
 	/**
 	 * 删除索引index上的元数
 	 * @param index
 	 */
-	void delete(int index);
+	void remove(int index);
 	
 	/**
 	 * 返回线性表的长度
